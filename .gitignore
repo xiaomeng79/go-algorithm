@@ -1,0 +1,4 @@
+#bench gen
+*/*.test
+*/*.profile
+*/*.out

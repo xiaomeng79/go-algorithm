@@ -1,4 +1,4 @@
-package insertion
+package bubble
 
 import (
 	"github.com/stretchr/testify/assert"
@@ -17,15 +17,15 @@ var (
 	value = []int{3, 44, 56, 38, 77, 38, 26}
 )
 
-func TestInsertionSort(t *testing.T) {
+func TestBubbleSort(t *testing.T) {
 	for _, v := range values {
-		assert.Exactly(t, v.sort, InsertionSort(v.nosort), "no eq")
+		assert.Exactly(t, v.sort, BubbleSort(v.nosort), "no eq")
 	}
 }
 
-func BenchmarkInsertionSort(b *testing.B) {
+func BenchmarkBubbleSort(b *testing.B) {
 	b.ReportAllocs()
 	for i := 0; i < b.N; i++ {
-		InsertionSort(value)
+		BubbleSort(value)
 	}
 }
