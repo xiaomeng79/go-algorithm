@@ -22,3 +22,20 @@ func InsertionSort(arr []int) []int {
 	}
 	return arr
 }
+
+func InsertionSort2(arr []int) []int {
+	length := len(arr)
+	//if length == 1 {return arr}
+
+	for i := 1; i < length; i++ {
+		backup := arr[i]
+		j := i -1;
+		//将选出的被排数比较后插入左边有序区
+		for  j >= 0 && backup < arr[j] {//注意j >= 0必须在前边，否则会数组越界
+			arr[j+1] = arr[j]//移动有序数组
+			j -- //反向移动下标
+		}
+		arr[j + 1] = backup //插队插入移动后的空位
+	}
+	return arr
+}
