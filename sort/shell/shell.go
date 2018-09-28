@@ -9,15 +9,15 @@ package shell
 //2. 按增量序列个数 k，对序列进行 k 趟排序；
 //3. 每趟排序，根据对应的增量 ti，将待排序列分割成若干长度为 m 的子序列，分别对各子表进行直接插入排序。仅增量因子为 1 时，整个序列作为一个表来处理，表长度即为整个序列的长度。
 
-func ShellSort(arr []int) []int{
+func ShellSort(arr []int) []int {
 	length := len(arr)
 	//设置增量
-	gap := length/2
+	gap := length / 2
 	//结束条件，增量为<=0
 	for gap > 0 {
 		//根据增量，进行分组插入排序
-		for i:=0;i<gap;i++ {
-			insertsort(arr,i,gap)
+		for i := 0; i < gap; i++ {
+			insertsort(arr, i, gap)
 		}
 		//分组完，组排序后，重新设置增量
 		gap /= 2
@@ -25,16 +25,15 @@ func ShellSort(arr []int) []int{
 	return arr
 }
 
-func insertsort(arr []int,start,gap int) {
+func insertsort(arr []int, start, gap int) {
 	length := len(arr)
-	for i:=start +gap;i<length;i+=gap {
-		preindex := i-gap
+	for i := start + gap; i < length; i += gap {
+		preindex := i - gap
 		cur := arr[i]
 		for preindex >= 0 && cur < arr[preindex] {
-			arr[preindex + gap] = arr[preindex]
+			arr[preindex+gap] = arr[preindex]
 			preindex -= gap
 		}
-		arr[preindex + gap] = cur
+		arr[preindex+gap] = cur
 	}
 }
-

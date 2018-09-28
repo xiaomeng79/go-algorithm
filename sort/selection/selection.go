@@ -11,18 +11,15 @@ package selection
 
 func SelectionSort(arr []int) []int {
 	length := len(arr)
-	for i:= 0;i < length-1;i++ {//注意这里使用length-1少一次，
+	for i := 0; i < length-1; i++ { //注意这里使用length-1少一次，
 		minIndex := i
-		for j:= i+1;j<length;j++ {
+		for j := i + 1; j < length; j++ {
 			if arr[j] < arr[minIndex] {
 				minIndex = j
 			}
 		}
 		//
-		arr[minIndex],arr[i] = arr[i],arr[minIndex]
+		arr[minIndex], arr[i] = arr[i], arr[minIndex]
 	}
 	return arr
 }
-
-
-

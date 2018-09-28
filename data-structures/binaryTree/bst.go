@@ -2,18 +2,18 @@ package binaryTree
 
 //二叉树
 //二叉树是每个节点最多有两个子树的树结构
-type ElementType int//节点数据
+type ElementType int //节点数据
 //结点
 type Node struct {
-	Value ElementType
+	Value  ElementType
 	Parent *Node
-	Left *Node
-	Right *Node
+	Left   *Node
+	Right  *Node
 }
 
 //创建节点
 func NewNode(v ElementType) *Node {
-	return &Node{Value:v}
+	return &Node{Value: v}
 }
 
 /*
@@ -41,13 +41,13 @@ func NewTree(n *Node) *Tree {
 	if n == nil {
 		return &Tree{}
 	}
-	return &Tree{Head:n,Size:1}
+	return &Tree{Head: n, Size: 1}
 }
 
 //插入,相同的节点值，放到右子树
 func (t *Tree) Insert(i ElementType) {
-	n := NewNode(i)//创建节点
-	if t.Head == nil {//判断树的根节点
+	n := NewNode(i)    //创建节点
+	if t.Head == nil { //判断树的根节点
 		t.Head = n
 		t.Size++
 		return
@@ -56,15 +56,15 @@ func (t *Tree) Insert(i ElementType) {
 	h := t.Head
 
 	for {
-		if n.Compare(h) == -1 {//小于parent，到左子节点
-			if h.Left == nil {//无左子节点
+		if n.Compare(h) == -1 { //小于parent，到左子节点
+			if h.Left == nil { //无左子节点
 				h.Left = n
 				n.Parent = h
 				break
 			} else {
 				h = h.Left
 			}
-		} else {//大于parent
+		} else { //大于parent
 			if h.Right == nil {
 				h.Right = n
 				n.Parent = h

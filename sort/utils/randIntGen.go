@@ -1,9 +1,9 @@
 package utils
 
 import (
+	"io"
 	"math/rand"
 	"os"
-	"io"
 	"strconv"
 )
 
@@ -13,15 +13,14 @@ func getRandInt(anchor int) int {
 	return rand.Intn(100000)
 }
 
-
 //生成随机数文件
-func GenRandFile(num int,filepath string) {
-	f,err := os.Create(filepath)
+func GenRandFile(num int, filepath string) {
+	f, err := os.Create(filepath)
 	defer f.Close()
 	if err != nil {
 		panic(err)
 	}
-	for i:=0;i < num; i++ {
-		io.WriteString(f,strconv.Itoa(getRandInt(i)) + "\n")
+	for i := 0; i < num; i++ {
+		io.WriteString(f, strconv.Itoa(getRandInt(i))+"\n")
 	}
 }
