@@ -10,7 +10,8 @@ fmt :
 	@gofmt -l -w ./
 
 
+
 .PHONY : test
 test :
 	@echo "测试代码"
-	go test -v ./...
+	@go test -v ./...
