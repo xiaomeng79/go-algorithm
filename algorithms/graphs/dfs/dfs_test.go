@@ -11,18 +11,18 @@ func TestUndirectedDfs(t *testing.T) {
 	h := graph.NewUndirected()
 
 	//增加顶点，
-	for i:=0; i<10; i++ {
+	for i := 0; i < 10; i++ {
 		h.AddVertex(graph.VertexId(i))
 	}
 	//增加边
-	for i:=0;i<9;i++ {
-		h.AddEdge(graph.VertexId(i),graph.VertexId(i+1),1)
+	for i := 0; i < 9; i++ {
+		h.AddEdge(graph.VertexId(i), graph.VertexId(i+1), 1)
 	}
 	counter := 0
-	UndirectedDfs(h,graph.VertexId(4), func(id graph.VertexId) {
+	UndirectedDfs(h, graph.VertexId(4), func(id graph.VertexId) {
 		counter += int(id)
 	})
-	assert.Equal(t,45,counter)
+	assert.Equal(t, 45, counter)
 }
 
 func TestDirectedDfs(t *testing.T) {
@@ -43,5 +43,5 @@ func TestDirectedDfs(t *testing.T) {
 		counter += int(v)
 	})
 
-	assert.Equal(t,42,counter)
+	assert.Equal(t, 42, counter)
 }
