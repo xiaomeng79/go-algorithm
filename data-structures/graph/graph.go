@@ -81,6 +81,10 @@ func (g *graph) RemoveVertex(vertex VertexId) error {
 	if !g.CheckVertex(vertex) {
 		return errors.New("unknow vertex")
 	}
+	//先删除边
+	for _to, _ := range g.edges[vertex] {
+		g.RemoveEdge(vertex, _to)
+	}
 	delete(g.edges, vertex)
 	for _, connectedVertices := range g.edges {
 		delete(connectedVertices, vertex)
@@ -110,6 +114,10 @@ func (g *graph) AddEdge(from, to VertexId, weight int) error {
 	//不存在边
 	if !g.CheckVertex(from) || !g.CheckVertex(to) {
 		return errors.New("vertices not exist")
+	}
+	//判断边存在不
+	if g.edges[from][to] > 0 {
+		return errors.New("edge  exist")
 	}
 	g.edges[from][to] = weight
 	if !g.isDirected {

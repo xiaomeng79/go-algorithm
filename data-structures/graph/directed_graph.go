@@ -15,15 +15,14 @@ func NewDirected() *DirGraph {
 	}
 }
 
+//入度
 func (g *graph) GetPredecessors(vertex VertexId) VerticesIterable {
 	iterator := func() <-chan VertexId {
 		ch := make(chan VertexId)
 		go func() {
-			if connected, ok := g.edges[vertex]; ok {
-				for VertexId, _ := range connected {
-					if g.CheckEdge(VertexId, vertex) {
-						ch <- VertexId
-					}
+			for VertexId, _ := range g.edges {
+				if g.CheckEdge(VertexId, vertex) {
+					ch <- VertexId
 				}
 			}
 			close(ch)
@@ -34,6 +33,7 @@ func (g *graph) GetPredecessors(vertex VertexId) VerticesIterable {
 	return VerticesIterable(&VerticesIterableHelp{iter: iterator})
 }
 
+//出度
 func (g *graph) GetSuccessors(vertex VertexId) VerticesIterable {
 	iterator := func() <-chan VertexId {
 		ch := make(chan VertexId)
