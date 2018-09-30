@@ -2,8 +2,8 @@ package shell
 
 import (
 	"github.com/stretchr/testify/assert"
-	"github.com/xiaomeng79/go-algorithm/sort/testdata"
-	"github.com/xiaomeng79/go-algorithm/sort/utils"
+	"github.com/xiaomeng79/go-algorithm/algorithms/sort/testdata"
+	"github.com/xiaomeng79/go-algorithm/algorithms/sort/utils"
 	"testing"
 )
 
