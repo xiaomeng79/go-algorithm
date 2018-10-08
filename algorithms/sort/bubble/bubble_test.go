@@ -9,7 +9,8 @@ import (
 
 func TestBubbleSort(t *testing.T) {
 	for _, v := range testdata.Values {
-		assert.Exactly(t, v.Sort, BubbleSort(v.Nosort), "no eq")
+		BubbleSort(v.Nosort)
+		assert.Exactly(t, v.Sort, v.Nosort, "no eq")
 	}
 }
 

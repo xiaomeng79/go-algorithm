@@ -9,14 +9,32 @@ package bubble
 //3. 针对所有的元素重复以上的步骤，除了最后一个。
 //4. 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
 
-func BubbleSort(arr []int) []int {
-	length := len(arr)            //获取最大长度
-	for i := 0; i < length; i++ { //比较次数
-		for j := 0; j < length-1-i; j++ { //比较长度
-			if arr[j] > arr[j+1] {
-				arr[j], arr[j+1] = arr[j+1], arr[j]
+//时间复杂度:O(n²)
+
+//推荐
+func BubbleSort(arr []int) {
+	for itemCount := len(arr) - 1; ; itemCount-- {
+		swap := false //下一次判断是否发生交换，没交换，说明已经有序
+		for i := 1; i <= itemCount; i++ {
+			if arr[i-1] > arr[i] {
+				arr[i-1], arr[i] = arr[i], arr[i-1]
+				swap = true
 			}
 		}
+		if swap == false {
+			break
+		}
 	}
-	return arr
 }
+
+//func BubbleSort(arr []int) []int {
+//	length := len(arr)            //获取最大长度
+//	for i := 0; i < length; i++ { //比较次数
+//		for j := 0; j < length-1-i; j++ { //比较长度
+//			if arr[j] > arr[j+1] {
+//				arr[j], arr[j+1] = arr[j+1], arr[j]
+//			}
+//		}
+//	}
+//	return arr
+//}
