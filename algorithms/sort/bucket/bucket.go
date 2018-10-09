@@ -19,7 +19,7 @@ package bucket
 基数排序：根据键值的每位数字来分配桶；
 计数排序：每个桶只存储单一键值；
 桶排序：每个桶存储一定范围的数值；
- */
+*/
 
 func BucketSort(arr []int) []int {
 	length := len(arr)
