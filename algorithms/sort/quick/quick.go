@@ -1,6 +1,7 @@
 package quick
 
 //快速排序:快速排序应该算是在冒泡排序基础上的递归分治法
+//主要思想：之所以快，跳跃式的交换消除逆序，
 
 //算法步骤:
 //从数列中挑出一个元素，称为 “基准”（pivot）;
@@ -29,12 +30,12 @@ func partition(arr []int, left, right int) int {
 	index := pivot + 1
 
 	for i := index; i <= right; i++ {
-		if arr[i] < arr[pivot] {
+		if arr[i] < arr[pivot] { //这里是关键，找到一个比基准大的数和一个比基准小的树数进行交换
 			swap(arr, i, index)
 			index += 1
 		}
 	}
-	swap(arr, pivot, index-1)
+	swap(arr, pivot, index-1) //将基准交换到中间位置
 	return index - 1
 
 }
