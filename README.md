@@ -1,6 +1,4 @@
-## go 数据结构和算法
-
-![](https://travis-ci.org/xiaomeng79/go-algorithm.svg?branch=master)
+## go 数据结构和算法[![Build Status](https://travis-ci.org/xiaomeng79/go-algorithm.svg?branch=master)](https://travis-ci.org/xiaomeng79/go-algorithm)
 
 
 ### 数据结构
