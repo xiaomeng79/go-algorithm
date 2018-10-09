@@ -1,5 +1,7 @@
 ## go 数据结构和算法
 
+![](https://travis-ci.org/xiaomeng79/go-algorithm.svg?branch=master)
+
 
 ### 数据结构
 
