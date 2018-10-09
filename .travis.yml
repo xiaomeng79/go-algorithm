@@ -4,5 +4,9 @@ language: go
 go:
 - "1.11.x"
 
+before_install:
+- go get github.com/stretchr/testify
+#- if ! go get code.google.com/p/go.tools/cmd/cover; then go get golang.org/x/tools/cmd/cover; fi
+
 script:
   go test -v ./...;
