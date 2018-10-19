@@ -1,6 +1,6 @@
 ## go 数据结构和算法 
 
-[![Build Status](https://travis-ci.org/xiaomeng79/go-algorithm.svg?branch=master)](https://travis-ci.org/xiaomeng79/go-algorithm) 
+[![Build Status](https://travis-ci.org/xiaomeng79/go-algorithm.svg?branch=master)](https://travis-ci.org/xiaomeng79/go-algorithm) [![codecov](https://codecov.io/gh/xiaomeng79/go-algorithm/branch/master/graph/badge.svg)](https://codecov.io/gh/xiaomeng79/go-algorithm)
 [![GitHub license](https://img.shields.io/github/license/xiaomeng79/go-algorithm.svg)](https://github.com/xiaomeng79/go-algorithm/blob/master/LICENSE)
 
 
