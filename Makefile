@@ -1,8 +1,5 @@
 #
 
-.PHONY : build
-build : fmt test
-	@echo "可以提交"
 
 .PHONY : fmt
 fmt :
@@ -14,4 +11,4 @@ fmt :
 .PHONY : test
 test :
 	@echo "测试代码"
-	@go test -v ./...
+	@go test -race -coverprofile=coverage.txt -covermode=atomic ./...
