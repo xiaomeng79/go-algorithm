@@ -55,7 +55,10 @@
 
 [桶排序](./algorithms/sort/bucket)
 
+### 训练
 
+#### String
+- 字符串反转
 
 
 #### 参考资料

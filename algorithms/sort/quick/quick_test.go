@@ -13,6 +13,7 @@ func TestQuickSort(t *testing.T) {
 	}
 }
 
+
 func benchmarkQuickSort(n int, b *testing.B) {
 	b.StopTimer()
 	list := utils.GetArrayOfSize(n)

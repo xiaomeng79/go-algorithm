@@ -38,3 +38,19 @@ func BubbleSort(arr []int) {
 //	}
 //	return arr
 //}
+
+//func BubbleSort2(arr []int) {
+//	l := len(arr)
+//	for i := 0; i<l; i++ {
+//		flag := true
+//		for j:=0;j<l-i-1;j++ {
+//			if arr[j+1] < arr[j] {
+//				arr[j+1],arr[j] = arr[j],arr[j+1]
+//				flag = false
+//			}
+//		}
+//		if flag {
+//			break
+//		}
+//	}
+//}

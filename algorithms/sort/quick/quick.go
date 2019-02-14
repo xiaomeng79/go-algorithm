@@ -18,7 +18,7 @@ func QuickSort(arr []int) []int {
 
 func quickSort(arr []int, left, right int) []int {
 	if left < right {
-		partitionIndex := partition(arr, left, right)
+		partitionIndex := partition(arr, left, right)//找分区点
 		quickSort(arr, left, partitionIndex-1)
 		quickSort(arr, partitionIndex+1, right)
 	}
@@ -30,7 +30,7 @@ func partition(arr []int, left, right int) int {
 	index := pivot + 1
 
 	for i := index; i <= right; i++ {
-		if arr[i] < arr[pivot] { //这里是关键，找到一个比基准大的数和一个比基准小的树数进行交换
+		if arr[i] < arr[pivot] { //这里是关键，找到一个比基准大的数和一个比基准小的数进行交换
 			swap(arr, i, index)
 			index += 1
 		}
