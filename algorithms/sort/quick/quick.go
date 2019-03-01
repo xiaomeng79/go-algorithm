@@ -18,7 +18,7 @@ func QuickSort(arr []int) []int {
 
 func quickSort(arr []int, left, right int) []int {
 	if left < right {
-		partitionIndex := partition(arr, left, right)//找分区点
+		partitionIndex := partition(arr, left, right) //找分区点
 		quickSort(arr, left, partitionIndex-1)
 		quickSort(arr, partitionIndex+1, right)
 	}

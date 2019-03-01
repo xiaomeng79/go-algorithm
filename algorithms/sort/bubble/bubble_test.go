@@ -14,7 +14,6 @@ func TestBubbleSort(t *testing.T) {
 	}
 }
 
-
 func benchmarkBubbleSort(n int, b *testing.B) {
 	b.StopTimer()
 	list := utils.GetArrayOfSize(n)
@@ -24,7 +23,6 @@ func benchmarkBubbleSort(n int, b *testing.B) {
 		BubbleSort(list)
 	}
 }
-
 
 func BenchmarkBubbleSort100(b *testing.B)    { benchmarkBubbleSort(100, b) }
 func BenchmarkBubbleSort1000(b *testing.B)   { benchmarkBubbleSort(1000, b) }
