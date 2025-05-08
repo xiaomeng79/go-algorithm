@@ -13,33 +13,33 @@ package quick
 //递归的最底部情形，是数列的大小是零或一，也就是永远都已经被排序好了。虽然一直递归下去，但是这个算法总会退出，因为在每次的迭代（iteration）中，它至少会把一个元素摆到它最后的位置去。
 
 func QuickSort(arr []int) []int {
-	return quickSort(arr, 0, len(arr)-1)
-}
-
-func quickSort(arr []int, left, right int) []int {
-	if left < right {
-		partitionIndex := partition(arr, left, right) //找分区点
-		quickSort(arr, left, partitionIndex-1)
-		quickSort(arr, partitionIndex+1, right)
-	}
+	quickSort(arr, 0, len(arr)-1)
 	return arr
 }
 
-func partition(arr []int, left, right int) int {
-	pivot := left
-	index := pivot + 1
+// left,right分别为数组的最左、最右下标
+func quickSort(arr []int, left, right int) {
+	if left >= right { // 递归截止条件
+		return
+	}
+	pivot := partition(arr, left, right)
+	quickSort(arr, left, pivot-1)
+	quickSort(arr, pivot+1, right)
+}
 
-	for i := index; i <= right; i++ {
-		if arr[i] < arr[pivot] { //这里是关键，找到一个比基准大的数和一个比基准小的数进行交换
-			swap(arr, i, index)
-			index += 1
+// 分区函数
+func partition(arr []int, left, right int) int {
+	pivot := arr[right] // 选择数组的最后一个元素作为基准值
+	i := left           // 数组最左元素的下标
+	for j := left; j < right; j++ {
+		if arr[j] < pivot { // 将小于基准值的元素交换到左边
+			arr[i], arr[j] = arr[j], arr[i]
+			i++
 		}
 	}
-	swap(arr, pivot, index-1) //将基准交换到中间位置
-	return index - 1
-
+	// 处理基准值
+	arr[i], arr[right] = arr[right], arr[i]
+	return i
 }
 
-func swap(arr []int, i, j int) {
-	arr[i], arr[j] = arr[j], arr[i]
-}
+// 空间复杂度：O(1), 在分区时使用原地交换的方式
